@@ -1,0 +1,179 @@
+
+
+.side {
+  width: 300px;
+  float: left;
+  position: fixed;
+    &__header {
+      background-color: #253141;
+      height: 100px;
+      position: relative;
+        &__box{
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          margin: auto;
+          height: 20px;
+          width: 260px;
+            &--name{
+              color: $color;
+              font-size: 16px;
+              font-weight: bold;
+              float: left;
+            }
+            &--icon1{
+              color: $color;
+              float: right;
+              
+
+              
+            }
+            &--icon2{
+              color: $color;
+              float: right;
+              
+            }
+        }
+      }
+    &__bottom {
+      background-color: #2f3e51;
+      height: calc(100vh - 100px);
+      position: relative;
+            &__box{
+              height: 60px;
+              width: 200px;
+              position: absolute;
+              top: 20px;
+              left: 20px;
+                &--name{
+                  color: $color;
+                  font-size: 15px;
+                  font-weight: bold;
+                  padding-bottom: 5px;
+                }
+                &--latestmessage{
+                  color: $color;
+                  font-size: 11px;
+                }
+            }
+    }
+}
+
+
+
+.main{
+  width: calc(100vw - 300px);
+  float: right;
+    &__header{
+      height: 100px;
+      background-color: $color;
+      position: fixed;
+      width: calc(100vw - 300px);
+        &__box{
+          height: 65px;
+          width: 80px;
+          position: absolute;
+          top: 35px;
+          left: 40px;
+          float: left;
+          
+            &--group{
+              font-size: 20px;
+              color: #333333;
+              padding-bottom: 17px;
+            }
+            &--member{
+              font-size: 12px;
+              color: #999999;
+              top: 65px;
+            }
+                
+                
+        }
+          &__btn{
+            height: 40px;
+            width: 75px;
+            float: right;
+            position: fixed;
+            right: 40px;
+            top: 35px;
+            border-style: solid;
+            border-color: #38AEF0;
+            border-width: thin;
+            text-align: center;
+            line-height: 40px;
+            color: #38AEF0;
+          }
+    }
+    &__chat{
+      height: 1000px;
+      width: calc(100vw - 300px);
+      margin-top: 100px;
+      background-color:#fafafa;
+        &__box{
+          height: 60px;
+          width: calc(100vw - 380px);
+          padding: 46px 0px 0px 40px;
+            &--name{
+              font-size: 16px;
+              float: left;
+              padding-bottom: 10px;
+            }
+            &--date{
+              font-size: 12px;
+              color: #999999;
+            }
+            &--message{
+              font-size: 14px;
+              clear: both;
+            }
+        }
+    }
+    &__form{
+      height: 90px;
+      width: calc(100vw - 300px);
+      bottom: 0;
+      position: fixed;
+      background-color: #ddd;
+        &__box{
+          height: 50px;
+          width: calc(100vw - 380px);
+          position: absolute;
+          top: 25px;
+          left: 40px;
+            &__box {
+              height: 50px;
+              width: calc(100vw - 490px);
+              background-color: $color;
+              position: absolute;
+              float: left;
+                &__icon3{
+                  height: 30px;
+                  width: 30px;
+                  background-color: $color;
+                  position: absolute;
+                  right: 110px;
+                  top: 10px;
+                  font-size: 23px;
+                  
+                
+                .hidden {
+                  display: none;
+                }
+              }
+              }
+            &__btn {
+              height: 50px;
+              width: 85px;
+              background-color: #38AEF0;
+              float: right;
+              color: $color;
+              position: absolute;
+              right: 0px;
+                }
+            
+        }
+      }
+    }
