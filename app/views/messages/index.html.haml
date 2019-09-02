@@ -9,10 +9,12 @@
         = fa_icon 'edit'
   .side__bottom
     .side__bottom__box
-      .side__bottom__box--name
-        kaito
-      .side__bottom__box--latestmessage
-        hello
+      - current_user.groups.each do |group|
+        = link_to '#' do
+          .side__bottom__box--name
+            = group.name
+          .side__bottom__box--latestmessage
+            メッセージはまだありません。
 
 
 
