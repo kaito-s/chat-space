@@ -1,0 +1,30 @@
+.wrapper
+
+  = render 'messages/side'
+
+.main
+  .main__header
+    .main__header__box
+      .main__header__box--group
+        kkkkk
+      .main__header__box--member
+        Member:kaito
+  = link_to '' do
+    .main__header__btn
+      Edit
+  .main__chat
+    .main__chat__box
+      .main__chat__box--name
+        田中
+      .main__chat__box--date
+        2019年9月3日
+      .main__chat__box--message
+        おはよう
+  .main__form
+    .main__form__box
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'main__form__box__box', placeholder: 'type a message' 
+        = f.label :image, class: 'main__form__box__box__icon3' do
+          = fa_icon 'picture-o' 
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'main__form__box__btn'
