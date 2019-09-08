@@ -47,6 +47,7 @@
               position: absolute;
               top: 20px;
               left: 20px;
+              
                 &--name{
                   color: $color;
                   font-size: 15px;
@@ -108,9 +109,11 @@
           }
     }
     &__chat{
-      height: 1000px;
+      height: calc(100vh - 190px);
+      overflow: scroll;
       width: calc(100vw - 300px);
       margin-top: 100px;
+      margin-bottom: 90px;
       background-color:#fafafa;
         &__box{
           height: 60px;
@@ -129,6 +132,7 @@
               font-size: 14px;
               clear: both;
             }
+        
         }
     }
     &__form{
