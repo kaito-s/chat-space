@@ -1,16 +1,22 @@
 $(function() {
     function buildMessage(message) {
+      var image = ""
+    message.image ? image = `<img src="${message.image}">` : image = ""
+
       var html =  `<div class="main__chat__box">
-      <div class="main__chat__box--name">
-      ${message.user_name}
-      </div>
-      <div class="main__chat__box--date">
-      ${message.created_at}
-      </div>
-      <div class="main__chat__box--message">
-      ${message.content}
-      </div>
-      </div>`
+                      <div class="main__chat__box--name">
+                        ${message.user_name}
+                      </div>
+                      <div class="main__chat__box--date">
+                        ${message.created_at}
+                      </div>
+                      <div class="main__chat__box--message">
+                        ${message.content}
+                      </div>
+                      <div class="main__chat__box--image">
+                        ${image} 
+                      </div>
+                    </div>`
       return html;
     }
 
@@ -28,10 +34,10 @@ $(function() {
       processData: false,
       contentType: false
   })
-  .done(function(message, image) {
-    var html = buildMessage(message, image);
+  .done(function(chat) {
+    var html = buildMessage(chat);
       $('.main__chat').append(html);
-      $('#message_content').val('')
+      $("form")[0].reset();
       $('.main__chat').animate({ scrollTop: $('.main__chat')[0].scrollHeight});
       
   })
