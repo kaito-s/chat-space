@@ -6,10 +6,12 @@
   .main__header
     .main__header__box
       .main__header__box--group
-        kkkkk
+        = @group.name
       .main__header__box--member
-        Member:kaito
-  = link_to '' do
+        Member: 
+        - @group.users.each do |users| 
+          = users.name
+  = link_to edit_group_path(@group) do
     .main__header__btn
       Edit
   .main__chat
@@ -22,3 +24,5 @@
           = fa_icon 'picture-o' 
           = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'main__form__box__btn'
+
+
