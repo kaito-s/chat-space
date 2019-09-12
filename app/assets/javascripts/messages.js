@@ -1,9 +1,9 @@
 $(function() {
     function buildMessage(message) {
-      var image = ""
-    message.image ? image = `<img src="${message.image}">` : image = ""
-
-      var html =  `<div class="main__chat__box">
+    // var image = "";
+    var image = message.image ? `<img src="${message.image}">` : "";
+      
+      var html =  `<div class="main__chat__box" data-id="${message.id}">
                       <div class="main__chat__box--name">
                         ${message.user_name}
                       </div>
@@ -48,4 +48,41 @@ $(function() {
     $('.main__form__box__btn').prop('disabled', false);
   })
   })
+  var reloadMessages = function() {
+    if(window.location.href.match(/\/groups\/\d+\/messages/)) {
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    last_message_id = $('.main__chat__box').last().data('id')
+      
+    $.ajax({
+      
+      //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      //dataオプションでリクエストに値を含める
+      data: {id: last_message_id}
+        })
+    .done(function(messages) {
+      
+      // 追加するHTMLの入れ物を作る
+        var insertHTML = '';
+        messages.forEach(function(message){
+        var html = buildMessage(message);
+        $('.main__chat').append(html);
+        
+        $("form")[0].reset();
+        $('.main__chat').animate({ scrollTop: $('.main__chat')[0].scrollHeight});
+        
+      });
+      })
+      
+    
+    .fail(function() {
+      console.log('error');
+
+    });
+  };
+  
+}
+setInterval(reloadMessages, 5000);
 });
