@@ -1,8 +1,6 @@
 $(function() {
     function buildMessage(message) {
-    
     var image = message.image ? `<img src="${message.image}">` : "";
-      
       var html =  `<div class="main__chat__box" data-id="${message.id}">
                       <div class="main__chat__box--name">
                         ${message.user_name}
@@ -19,9 +17,6 @@ $(function() {
                     </div>`
       return html;
     }
-
-
-
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -39,8 +34,7 @@ $(function() {
       $('.main__chat').append(html);
       $("form")[0].reset();
       $('.main__chat').animate({ scrollTop: $('.main__chat')[0].scrollHeight});
-      
-  })
+      })
   .fail(function() {
     alert('エラー');
   })
@@ -54,35 +48,22 @@ $(function() {
     last_message_id = $('.main__chat__box').last().data('id')
       
     $.ajax({
-      
-      
       url: 'api/messages',
       type: 'get',
       dataType: 'json',
-      
       data: {id: last_message_id}
         })
     .done(function(messages) {
-      
-      
-        var insertHTML = '';
+      var insertHTML = '';
         messages.forEach(function(message){
         var html = buildMessage(message);
         $('.main__chat').append(html);
         
         $("form")[0].reset();
         $('.main__chat').animate({ scrollTop: $('.main__chat')[0].scrollHeight});
-        
-      });
+        });
       })
-      
-    
-    .fail(function() {
-      console.log('error');
-
-    });
-  };
-  
-}
+      };
+  }
 setInterval(reloadMessages, 5000);
 });
