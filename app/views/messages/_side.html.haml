@@ -8,11 +8,10 @@
       =link_to new_group_path , class: "side__header__box--icon2" do
         = fa_icon 'edit'
   .side__bottom
-    .side__bottoms
-      .side__bottom__box
-        - current_user.groups.each do |group|
-          = link_to group_messages_path(group) do
-            .side__bottom__box--name
-              = group.name
-            .side__bottom__box--latestmessage
-              = group.show_last_message
+    .side__bottom__box
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .side__bottom__box--name
+            = group.name
+          .side__bottom__box--latestmessage
+            = group.show_last_message
