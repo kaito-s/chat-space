@@ -1,11 +1,10 @@
-.main__chat__box
-  %div{data: {id: message.id}}
-    .main__chat__box--name
-      = message.user.name
-    .main__chat__box--date
-      = message.created_at
-    .main__chat__box--message
-    - if message.content.present?
-      = message.content
+.main__chat__box{data: {id: message.id}}
+  .main__chat__box--name
+    = message.user.name
+  .main__chat__box--date
+    = message.created_at
+  .main__chat__box--message
+  - if message.content.present?
+    = message.content
 = image_tag message.image.url, class: 'main__chat__box--image' if message.image.present? 
     

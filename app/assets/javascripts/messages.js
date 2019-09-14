@@ -12,9 +12,10 @@ $(function() {
                       <div class="main__chat__box--message">
                         ${message.content}
                       </div>
-                  </div>
+                    </div>
                   <div class="main__chat__box--image">
                     ${image} 
+                  
                   </div>`
                   
       return html;
@@ -48,7 +49,7 @@ $(function() {
   var reloadMessages = function() {
     if(window.location.href.match(/\/groups\/\d+\/messages/)) {
     
-    var last_message_id = $('.main__chat__box:last').data('id')
+    var last_message_id = $('.main__chat__box').last().data('id')
     console.log(last_message_id);
       
     $.ajax({
